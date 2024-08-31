@@ -1,0 +1,31 @@
+/* Basic styling for the chessboard */
+table {
+  border-collapse: collapse;
+  margin: 20px auto; /* Center the board on the page */
+  width: 400px; /* Set the desired width for the chessboard */
+  height: 400px; /* Set the desired height for the chessboard */
+}
+
+/* Styling for each cell */
+td {
+  width: 50px;  /* Set the cell width */
+  height: 50px; /* Set the cell height */
+  text-align: center; /* Center the content horizontally */
+  vertical-align: middle; /* Center the content vertically */
+  font-size: 36px; /* Adjust font size to fit the chess piece */
+  line-height: 50px; /* Match the line-height with the cell height for vertical centering */
+}
+
+/* Specific styles for black and white cells */
+#black {
+  background-color: #769656; /* Dark green for black cells */
+}
+
+#white {
+  background-color: #eeeed2; /* Light beige for white cells */
+}
+
+/* Optional: Make the table borderless */
+table, td {
+  border: none;
+}
