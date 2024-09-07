@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <link rel="stylesheet" href="timetable.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Class Timetable</h1>
+    <table class="time-table">
+        <thead>
+            <tr>
+                <th scope="col">Timings</th>
+                <th scope="col">Monday</th>
+                <th scope="col">Tuesday</th>
+                <th scope="col">Wednesday</th>
+                <th scope="col">Thursday</th>
+                <th scope="col">Friday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">9:00 - 10:00</th>
+                <td>English</td>
+                <td>Maths</td>
+                <td>Hindi</td>
+                <td>Computers</td>
+                <td>Science</td>
+            </tr>
+            <tr>
+                <th scope="row">10:00 - 11:00</th>
+                <td>Science</td>
+                <td>English</td>
+                <td>Computers</td>
+                <td>Maths</td>
+                <td>Hindi</td>
+            </tr>
+            <tr>
+                <th scope="row">11:00 - 12:00</th>
+                <td>Computers</td>
+                <td>Hindi</td>
+                <td>Science</td>
+                <td>English</td>
+                <td>Maths</td>
+            </tr>
+            <tr class="lunch-break">
+                <th scope="row">12:00 - 1:00</th>
+                <td colspan="5">Lunch Break</td>
+            </tr>
+            <tr>
+                <th scope="row">1:00 - 2:00</th>
+                <td>Hindi</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Computers</td>
+                <td>English</td>
+            </tr>
+            <tr>
+                <th scope="row">2:00 - 3:00</th>
+                <td>Maths</td>
+                <td>English</td>
+                <td>Hindi</td>
+                <td>Science</td>
+                <td>Computers</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const cells = document.querySelectorAll('td');
+    
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = '#ffdddd';
+        });
 
+        cell.addEventListener('mouseout', () => {
+            cell.style.backgroundColor = '';
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
