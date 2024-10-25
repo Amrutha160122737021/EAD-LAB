@@ -1,0 +1,65 @@
+TERMINAL1
+
+mkdir \data\rs1 \data\rs2 \data\rs3
+
+
+TERMINAL1*2*3
+
+C:\Program Files\MongoDB\Server\3.2\bin
+
+Install Mongo Shell and set Environment Variable.
+
+TERMINAL1
+
+start mongod --replSet CBIT --dbpath /data/rs1 --port 27018 
+
+TERMINAL2
+
+start mongod --replSet CBIT --dbpath /data/rs2 --port 27019
+
+
+TERMINAL3
+
+start mongod --replSet CBIT --dbpath /data/rs3 --port 27020
+
+
+TERMINAL1
+
+mongosh --port 27018
+
+config = { _id: "CBIT", members:[
+          { _id : 0, host : "localhost:27018"},
+          { _id : 1, host : "localhost:27019"},
+          { _id : 2, host : "localhost:27020"} ]
+         };
+
+
+rs.initiate(config);
+rs.status();
+
+db.products.insertOne( { item: "pen", qty: 20 } )
+db.products.find();
+
+TERMINAL2
+
+mongosh --port 27019
+rs.secondaryOk()
+db.products.find();
+
+TERMINAL3
+
+mongosh --port 27020
+rs.secondaryOk()
+db.products.find();
+
+
+TERMINAL1
+
+use admin;
+db.shutdownServer();
+
+
+
+open a TERMINAL2 & TERMINAL2
+
+rs.status();
